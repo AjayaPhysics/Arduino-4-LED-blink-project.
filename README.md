@@ -1,4 +1,84 @@
 # Arduino-4-LED-blink-project.
+# Arduino 4 LED Blink Project
+
+## Overview
+This project demonstrates how to control 4 LEDs with an Arduino to blink them in sequence and simultaneously. It is designed for beginners to learn multi-pin control and LED operations.
+
+---
+
+## Components
+| **Component**        | **Quantity** | **Description**                           |
+|-----------------------|--------------|-------------------------------------------|
+| Arduino Uno           | 1            | Microcontroller board                     |
+| LEDs                  | 4            | For blinking (any colour)                 |
+| Resistors (220Ω)      | 4            | To limit the current through the LEDs     |
+| Breadboard (optional) | 1            | For easier wiring                         |
+| Jumper Wires          | Several      | For making connections                    |
+
+---
+
+## Connections
+| **Arduino Pin**    | **Component**          | **Connection**                              |
+|---------------------|------------------------|---------------------------------------------|
+| Pin 2 (Digital)     | LED 1 anode (+)       | Through a 220Ω resistor to LED 1 anode     |
+| Pin 3 (Digital)     | LED 2 anode (+)       | Through a 220Ω resistor to LED 2 anode     |
+| Pin 4 (Digital)     | LED 3 anode (+)       | Through a 220Ω resistor to LED 3 anode     |
+| Pin 5 (Digital)     | LED 4 anode (+)       | Through a 220Ω resistor to LED 4 anode     |
+| GND                 | LED cathodes (-)      | All LED cathodes connected to GND          |
+
+---
+
+## Arduino Code
+
+Below is the code to make the 4 LEDs blink sequentially and simultaneously:
+
+```cpp
+// Define LED pins
+#define LED1 2
+#define LED2 3
+#define LED3 4
+#define LED4 5
+
+void setup() {
+  // Set LED pins as output
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+}
+
+void loop() {
+  // Turn LEDs on and off sequentially
+  digitalWrite(LED1, HIGH);
+  delay(500);
+  digitalWrite(LED1, LOW);
+  
+  digitalWrite(LED2, HIGH);
+  delay(500);
+  digitalWrite(LED2, LOW);
+  
+  digitalWrite(LED3, HIGH);
+  delay(500);
+  digitalWrite(LED3, LOW);
+  
+  digitalWrite(LED4, HIGH);
+  delay(500);
+  digitalWrite(LED4, LOW);
+
+  // Turn all LEDs on and off simultaneously
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED3, HIGH);
+  digitalWrite(LED4, HIGH);
+  delay(500);
+  
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  delay(500);
+}
+
 Here’s how you can connect 4 LEDs to an Arduino and write code to blink them.
 Components Needed:
 Arduino board (e.g., Arduino Uno)
